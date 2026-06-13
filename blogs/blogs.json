@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "provider": "legiscan",
+    "blog_url": "https://legiscan.com/news-update",
+    "last_fetched": "2026-06-13",
+    "fetch_status": "blocked_403",
+    "notes": "LegiScan website returns HTTP 403 for all pages including the blog feed. No posts could be retrieved."
+  },
+  "posts": []
+}

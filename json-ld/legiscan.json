@@ -1,0 +1,78 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://legiscan.com",
+  "name": "LegiScan",
+  "url": "https://legiscan.com",
+  "description": "LegiScan is a national legislative tracking service providing real-time data on bill activity, voting records, and legislative actions across all 50 US states and Congress.",
+  "sameAs": [
+    "https://www.linkedin.com/company/legiscan",
+    "https://x.com/LegiScan"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free Public Tier",
+      "description": "30,000 queries per month via the LegiScan Pull API.",
+      "url": "https://legiscan.com/pricing/api"
+    },
+    {
+      "@type": "Offer",
+      "name": "Paid Subscription Plans",
+      "description": "Higher query limits and push-based real-time updates pushed every 15 minutes to 4 hours as changes are detected.",
+      "url": "https://legiscan.com/pricing/api"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "LegiScan APIs",
+    "itemListElement": [
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "LegiScan Pull API",
+        "description": "An RPC-style JSON service that allows clients to query the national legislative database on demand. Operations include retrieving session lists, master bill lists, bill details, full bill text, amendments, supplements, roll call votes, person/sponsor information, and full-text search across all 50 states and Congress.",
+        "url": "https://legiscan.com/legiscan",
+        "documentation": "https://legiscan.com/gaits/documentation/legiscan",
+        "featureList": [
+          "getSessionList",
+          "getMasterList",
+          "getBill",
+          "getText",
+          "getAmendment",
+          "getSupplement",
+          "getRollCall",
+          "getPerson",
+          "getSearch",
+          "getDatasetList",
+          "getDataset"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "LegiScan Push API",
+        "description": "A paid subscription service that delivers real-time legislative updates to a client-hosted endpoint. Changes detected in bill information are pushed every 15 minutes to 4 hours depending on subscription tier and coverage.",
+        "url": "https://legiscan.com/legiscan",
+        "documentation": "https://api.legiscan.com/docs/class-LegiScan_Endpoint.html"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "LegiScan Bulk Dataset API",
+        "description": "Provides access to weekly snapshot ZIP archives containing all getBill, getRollCall, and getPerson payload records as individual JSON files for each legislative session.",
+        "url": "https://legiscan.com/datasets",
+        "documentation": "https://legiscan.com/data-exports"
+      }
+    ]
+  },
+  "keywords": [
+    "Legislative Tracking",
+    "Government",
+    "Bills",
+    "Voting Records",
+    "State Legislation",
+    "Congressional Data",
+    "Civic Tech"
+  ]
+}
