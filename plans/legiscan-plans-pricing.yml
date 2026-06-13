@@ -1,0 +1,122 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: LegiScan
+providerId: legiscan
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Legislative Data
+  - Government
+  - Civic Tech
+description: >-
+  LegiScan offers three service levels — Public (free), Pull (paid
+  subscription), and Push (paid subscription). Service fees for paid plans are
+  annual and priced by the number of states covered, where Congress counts as a
+  single state. Push plans deliver real-time updates to a client endpoint;
+  Pull plans require client-initiated polling. Exact per-state pricing is
+  available via the LegiScan pricing page and price list PDF.
+sources:
+  - https://legiscan.com/pricing/api
+  - https://api.legiscan.com/dl/LegiScan_API_User_Manual.pdf
+plans:
+  - id: legiscan-public
+    name: Public
+    type: freemium
+    description: >-
+      Free civic API key providing access to the Pull interface for the
+      full national legislative database. Limited to 30,000 queries per month
+      to mirror the OneVote public tracking service.
+    entries:
+      - label: Monthly query allowance
+        name: queries_monthly
+        type: quota
+        metric: api_call
+        limit: 30000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Access to all 50 states and Congress
+      - name: Pull interface (client-initiated polling)
+      - name: getSessionList, getMasterList, getBill, getBillText
+      - name: getAmendment, getSupplement, getRollCall, getPerson
+      - name: getSearch, getSearchRaw, getDatasetList
+      - name: Full-text search with ADJ/AND/OR/NOT operators
+      - name: JSON response format
+  - id: legiscan-pull-intro
+    name: Pull Introductory
+    type: subscription
+    description: >-
+      Annual subscription for the Pull interface with increased query limits
+      between 100,000 and 250,000 queries per month. Priced annually by number
+      of states covered.
+    entries:
+      - label: Monthly query allowance
+        name: queries_monthly
+        type: quota
+        metric: api_call
+        limit: 250000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Everything in Public tier
+      - name: 100,000–250,000 queries per month
+      - name: Annual billing by state coverage
+      - name: Access to full national legislative database
+      - name: getDataset bulk download access
+  - id: legiscan-pull-professional
+    name: Pull Professional
+    type: subscription
+    description: >-
+      Higher-volume annual Pull subscription for organizations needing
+      extensive programmatic access to legislative data. Query limits and
+      pricing based on state coverage; contact LegiScan for details.
+    entries:
+      - label: Monthly query allowance
+        name: queries_monthly
+        type: quota
+        metric: api_call
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Higher query limits than Introductory
+      - name: Annual billing by state coverage
+      - name: Full getDataset bulk archive access
+      - name: Priority support
+  - id: legiscan-push
+    name: Push
+    type: subscription
+    description: >-
+      Real-time legislative push notifications delivered to a client-hosted
+      endpoint every 15 minutes to 4 hours as changes are detected. Annual
+      subscription priced by number of states covered, from single state to
+      full national coverage.
+    entries:
+      - label: Annual subscription (per state coverage)
+        name: push_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: US
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Real-time push updates (15 min–4 hour cadence)
+      - name: Payload delivery to client-hosted endpoint
+      - name: api_auth_key validation via HTTP Authorization header
+      - name: Single state to full 50-state national coverage
+      - name: Congress included as a single coverage unit
+      - name: Same legislative database as Pull plans

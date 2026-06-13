@@ -1,0 +1,65 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: LegiScan
+providerId: legiscan
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Legislative Data
+  - Government
+description: >-
+  LegiScan rate limits are enforced per API key on a monthly query quota basis.
+  The free Public tier is capped at 30,000 queries per month. Paid Pull
+  subscription tiers provide between 100,000 and 250,000+ queries per month
+  depending on the plan. Push subscriptions are not query-limited in the same
+  way — updates are event-driven and delivered to the client endpoint at a
+  cadence of every 15 minutes to 4 hours. The Microsoft Power Platform
+  connector enforces an additional throttle of 100 calls per 60 seconds per
+  connection.
+sources:
+  - https://legiscan.com/pricing/api
+  - https://api.legiscan.com/dl/LegiScan_API_User_Manual.pdf
+  - https://learn.microsoft.com/en-us/connectors/legiscan/
+responseCodes:
+  throttled: 429
+limits:
+  - name: Public tier — monthly query quota
+    scope: key
+    metric: api_call
+    limit: 30000
+    timeFrame: month
+  - name: Pull Introductory — monthly query quota
+    scope: key
+    metric: api_call
+    limit: 250000
+    timeFrame: month
+  - name: Power Platform connector — calls per connection
+    scope: connection
+    metric: api_call
+    limit: 100
+    timeFrame: 60 seconds
+policies:
+  - name: Monthly quota reset
+    description: >-
+      Query counts reset monthly. Public keys are capped at 30,000 queries to
+      mirror the OneVote public tracking service. Exceeding the quota requires
+      upgrading to a paid Pull subscription.
+  - name: Key-based enforcement
+    description: >-
+      Rate limits are enforced per API key. Each key is associated with a
+      LegiScan account and its subscription tier determines the monthly limit.
+  - name: Push delivery cadence
+    description: >-
+      Push API subscriptions deliver updates to client endpoints on a
+      15-minute to 4-hour schedule as legislative changes are detected.
+      There is no per-request rate limit for push delivery — the cadence is
+      controlled by LegiScan's detection and delivery schedule.
+  - name: Data update frequencies
+    description: >-
+      Individual operations have their own underlying data update frequencies:
+      getSessionList updates daily; getMasterList updates hourly; getBill
+      updates every 3 hours; getPerson updates weekly; getBillText,
+      getAmendment, getSupplement, and getRollCall are static once published.

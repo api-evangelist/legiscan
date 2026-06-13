@@ -1,0 +1,120 @@
+aid: legiscan
+name: LegiScan
+description: >-
+  LegiScan is a national legislative tracking service providing real-time data
+  on bill activity, voting records, and legislative actions across all 50 US
+  states and Congress. The LegiScan API offers a JSON-based RPC-style interface
+  supporting both pull and push data delivery models. Developers and
+  organizations can monitor legislation in near real-time, search full-text bill
+  content, retrieve roll call votes, access sponsor and legislator information,
+  and download bulk session datasets. The free public tier provides 30,000
+  queries per month, with paid subscription plans offering higher limits and
+  push-based real-time updates pushed every 15 minutes to 4 hours as changes
+  are detected.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/legiscan/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Legislative Tracking
+  - Government
+  - Bills
+  - Voting Records
+  - State Legislation
+  - Congressional Data
+  - Civic Tech
+apis:
+  - aid: legiscan:legiscan-pull-api
+    name: LegiScan Pull API
+    description: >-
+      The LegiScan Pull API is an RPC-style JSON service that allows clients to
+      query the national legislative database on demand. Operations include
+      retrieving session lists, master bill lists, bill details, full bill text,
+      amendments, supplements, roll call votes, person/sponsor information, and
+      full-text search across all 50 states and Congress. Authentication uses an
+      API key passed as a query parameter. The free public tier supports 30,000
+      queries per month; paid subscription tiers provide higher query limits.
+    humanURL: https://legiscan.com/legiscan
+    baseURL: https://api.legiscan.com/
+    tags:
+      - Bills
+      - Sessions
+      - Voting Records
+      - Legislators
+      - Search
+      - Amendments
+    properties:
+      - type: Documentation
+        url: https://legiscan.com/legiscan
+      - type: APIReference
+        url: https://legiscan.com/gaits/documentation/legiscan
+  - aid: legiscan:legiscan-push-api
+    name: LegiScan Push API
+    description: >-
+      The LegiScan Push API is a paid subscription service that delivers
+      real-time legislative updates to a client-hosted endpoint. Changes
+      detected in bill information are pushed every 15 minutes to 4 hours
+      depending on subscription tier and coverage (single state to full
+      national). Clients implement a push endpoint listener that validates
+      incoming payloads via an Authorization header using the api_auth_key.
+    humanURL: https://legiscan.com/legiscan
+    baseURL: https://api.legiscan.com/
+    tags:
+      - Push Notifications
+      - Real-Time
+      - Webhooks
+      - Bills
+      - Legislation
+    properties:
+      - type: Documentation
+        url: https://legiscan.com/legiscan
+      - type: APIReference
+        url: https://api.legiscan.com/docs/class-LegiScan_Endpoint.html
+  - aid: legiscan:legiscan-bulk-dataset-api
+    name: LegiScan Bulk Dataset API
+    description: >-
+      The LegiScan Bulk Dataset API provides access to weekly snapshot ZIP
+      archives containing all getBill, getRollCall, and getPerson payload
+      records as individual JSON files for each legislative session. Clients
+      retrieve dataset listings via getDatasetList and download archives via
+      getDataset using a session_id and access_key. Datasets are available for
+      all 50 states and Congress going back multiple sessions.
+    humanURL: https://legiscan.com/datasets
+    baseURL: https://api.legiscan.com/
+    tags:
+      - Bulk Data
+      - Datasets
+      - Bills
+      - Sessions
+      - Archives
+    properties:
+      - type: Documentation
+        url: https://legiscan.com/datasets
+      - type: DataExports
+        url: https://legiscan.com/data-exports
+common:
+  - type: Website
+    url: https://legiscan.com
+  - type: Documentation
+    url: https://legiscan.com/legiscan
+  - type: APIReference
+    url: https://legiscan.com/gaits/documentation/legiscan
+  - type: Blog
+    url: https://legiscan.com/news-update
+  - type: Pricing
+    url: https://legiscan.com/pricing/api
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/legiscan
+  - type: X
+    url: https://x.com/LegiScan
+  - type: Plans
+    url: plans/legiscan-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/legiscan-rate-limits.yml
+  - type: FinOps
+    url: finops/legiscan-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

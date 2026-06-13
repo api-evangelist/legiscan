@@ -1,0 +1,90 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: LegiScan
+providerId: legiscan
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Legislative Data
+  - Government
+description: >-
+  FOCUS-aligned FinOps guidance for LegiScan API consumption. LegiScan pricing
+  is query-quota-based (Public free tier) or annual subscription by state
+  coverage (Pull and Push paid tiers). Cost is primarily driven by the number
+  of states monitored and query volume for Pull plans, or the number of covered
+  states for Push plans.
+sources:
+  - https://legiscan.com/pricing/api
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: LegiScan LLC
+serviceCategory: Data & Analytics
+billingModel:
+  pricingCategory: Subscription + Quota
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+focusColumns:
+  ServiceName: LegiScan API
+  ServiceCategory: Data & Analytics
+  ProviderName: LegiScan
+  PublisherName: LegiScan LLC
+  InvoiceIssuerName: LegiScan LLC
+  BillingCurrency: USD
+meters:
+  - name: api_queries
+    unit: query
+    aggregation: sum
+    dimensions:
+      - plan_tier
+      - operation
+      - state_coverage
+  - name: state_coverage_units
+    unit: state
+    aggregation: count
+    dimensions:
+      - plan_type
+  - name: push_subscription
+    unit: subscription
+    aggregation: sum
+    dimensions:
+      - state_coverage
+      - delivery_cadence
+principles:
+  - name: Visibility
+    description: >-
+      Track monthly API query consumption against your plan quota. Monitor
+      getMasterList and getBill call frequency as these operations typically
+      account for the majority of query volume in polling architectures.
+  - name: Allocation
+    description: >-
+      If operating multiple LegiScan API keys across teams or applications,
+      assign separate keys per project or department to enable chargeback.
+      For Push subscriptions, allocate cost by state coverage assigned to
+      each business unit.
+  - name: Optimization
+    description: >-
+      Use getMasterListRaw and change_hash values to detect bill changes before
+      fetching full bill detail via getBill — this avoids redundant queries on
+      unchanged legislation. Use weekly bulk dataset downloads via getDataset
+      instead of polling getBill for historical backfill workloads. Match plan
+      tier and state coverage to actual monitoring needs to avoid over-paying
+      for unused states.
+  - name: Accountability
+    description: >-
+      Review monthly query usage before renewal to right-size Pull subscription
+      tier. For Push subscriptions, validate that all covered states are
+      actively needed by the business. Reconcile annual subscription renewals
+      against current state legislative calendars — some states have biennial
+      sessions and may require less monitoring in off years.
