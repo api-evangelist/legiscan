@@ -6,5 +6,14 @@
     "fetch_status": "blocked_403",
     "notes": "LegiScan website returns HTTP 403 for all pages including the blog feed. No posts could be retrieved."
   },
-  "posts": []
+  "posts": [],
+  "repo": "legiscan",
+  "feeds": [
+    {
+      "source": "https://legiscan.com/gaits/documentation/legiscan",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-14T20:42:17Z"
 }
