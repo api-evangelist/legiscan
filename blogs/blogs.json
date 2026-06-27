@@ -1,19 +1,12 @@
 {
-  "meta": {
-    "provider": "legiscan",
-    "blog_url": "https://legiscan.com/news-update",
-    "last_fetched": "2026-06-13",
-    "fetch_status": "blocked_403",
-    "notes": "LegiScan website returns HTTP 403 for all pages including the blog feed. No posts could be retrieved."
-  },
-  "posts": [],
   "repo": "legiscan",
   "feeds": [
     {
-      "source": "https://legiscan.com/gaits/documentation/legiscan",
-      "error": "HTTPError"
+      "source": "https://legiscan.com/news-update",
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:51:39Z",
+  "post_count": 0
 }
