@@ -95,6 +95,8 @@ apis:
       - type: DataExports
         url: https://legiscan.com/data-exports
 common:
+  - type: DomainSecurity
+    url: security/legiscan-domain-security.yml
   - type: Website
     url: https://legiscan.com
   - type: Documentation
