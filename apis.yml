@@ -76,6 +76,12 @@ apis:
     tags:
       - Push Notifications
       - Real-Time
+      - Webhook
+      - Bills
+      - Legislation
+    tags_raw:
+      - Push Notifications
+      - Real-Time
       - Webhooks
       - Bills
       - Legislation
