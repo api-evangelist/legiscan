@@ -1,24 +1,22 @@
-# Kin Score artifact — legiscan — 2026-09-03T174231
+# Kin Score artifact — legiscan — 2026-10-11T110117
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: legiscan
-  schema_version: 0.18.2
-  scored_at: '2026-09-03'
-  run_ts: 2026-09-03T174231
-  composite: 23.7
+  schema_version: 0.23.0
+  scored_at: '2026-10-11'
+  run_ts: 2026-10-11T110117
+  composite: 22.9
   band: emerging
   facets:
-    discoverability: 74.1
+    discoverability: 71.4
     contract_quality: 0.0
-    governance: 0.0
-    operational_transparency: 31.6
-    developer_ergonomics: 19.0
-    commercial_clarity: 50.0
     contract_governance: 0.0
-    access_clarity: 50.0
+    operational_transparency: 28.4
+    developer_ergonomics: 19.0
+    access_clarity: 46.8
   agent_readiness:
-    score: 2.5
+    score: 0.6
     band: human-only
     dimensions:
       spec_presence: false
@@ -29,7 +27,7 @@ kin_score:
       idempotency: false
       error_semantics: false
       openapi_examples: false
-      rate_limit_signal: documented
+      rate_limit_signal: derived
       event_surface_described: false
       agent_skills: false
       well_known_catalog: false
@@ -44,5 +42,5 @@ kin_score:
     applies: true
     regime: Government & Public Sector
     regime_id: government
-    score: 11.1
+    score: 5.9
     matched_via: tags
