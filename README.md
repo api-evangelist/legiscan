@@ -1,4 +1,4 @@
-# LegiScan (legiscan)
+# LegiScan
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,104 +66,105 @@
 
 LegiScan is a national legislative tracking service providing real-time data on bill activity, voting records, and legislative actions across all 50 US states and Congress. The LegiScan API offers a JSON-based RPC-style interface supporting both pull and push data delivery models. Developers and organizations can monitor legislation in near real-time, search full-text bill content, retrieve roll call votes, access sponsor and legislator information, and download bulk session datasets. The free public tier provides 30,000 queries per month, with paid subscription plans offering higher limits and push-based real-time updates pushed every 15 minutes to 4 hours as changes are detected.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/legiscan/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/legiscan/refs/heads/main/apis.yml)
+**Areas:** Legislative Tracking · Government · Bills · Voting Records · State Legislation · Congressional Data · Civic Tech
 
-## Scope
+## LegiScan on APIs.io
 
-- **Type:** Index
+Everything profiled for LegiScan is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/legiscan/](https://apis.io/providers/legiscan/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Legislative Tracking
-- Government
-- Bills
-- Voting Records
-- State Legislation
-- Congressional Data
-- Civic Tech
+- [LegiScan Pull API](https://apis.io/apis/legiscan/legiscan-pull-api/) — The LegiScan Pull API is an RPC-style JSON service that allows clients to query the national legislative database on demand. Operations include retrieving…
+- [LegiScan Push API](https://apis.io/apis/legiscan/legiscan-push-api/) — The LegiScan Push API is a paid subscription service that delivers real-time legislative updates to a client-hosted endpoint. Changes detected in bill…
+- [LegiScan Bulk Dataset API](https://apis.io/apis/legiscan/legiscan-bulk-dataset-api/) — The LegiScan Bulk Dataset API provides access to weekly snapshot ZIP archives containing all getBill, getRollCall, and getPerson payload records as…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (1)
 
-### LegiScan Pull API
+Authentication, trust centre, and vulnerability disclosure.
 
-The LegiScan Pull API is an RPC-style JSON service that allows clients to query the national legislative database on demand. Operations include retrieving session lists, master bill lists, bill details, full bill text, amendments, supplements, roll call votes, person/sponsor information, and full-text search across all 50 states and Congress. Authentication uses an API key passed as a query parameter. The free public tier supports 30,000 queries per month; paid subscription tiers provide higher query limits.
+- [Legiscan Domain Security](https://apis.io/security/legiscan/legiscan-domain-security/)
 
-- **Human URL:** [https://legiscan.com/legiscan](https://legiscan.com/legiscan)
-- **Base URL:** `https://api.legiscan.com/`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Bills
-- Sessions
-- Voting Records
-- Legislators
-- Search
-- Amendments
+- [Legiscan Plans Pricing](https://apis.io/plans/legiscan/legiscan-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://legiscan.com/legiscan)
-- [API Reference](https://legiscan.com/gaits/documentation/legiscan)
+Published request limits.
 
-### LegiScan Push API
+- [Legiscan Rate Limits](https://apis.io/rate-limits/legiscan/legiscan-rate-limits/)
 
-The LegiScan Push API is a paid subscription service that delivers real-time legislative updates to a client-hosted endpoint. Changes detected in bill information are pushed every 15 minutes to 4 hours depending on subscription tier and coverage (single state to full national). Clients implement a push endpoint listener that validates incoming payloads via an Authorization header using the api_auth_key.
+#### FinOps (1)
 
-- **Human URL:** [https://legiscan.com/legiscan](https://legiscan.com/legiscan)
-- **Base URL:** `https://api.legiscan.com/`
+What the API costs to run, by operation.
 
-#### Tags
+- [Legiscan Finops](https://apis.io/finops/legiscan/legiscan-finops/)
 
-- Push Notifications
-- Real-Time
-- Webhooks
-- Bills
-- Legislation
+## Where to find this API
 
-#### Properties
-
-- [Documentation](https://legiscan.com/legiscan)
-- [API Reference](https://api.legiscan.com/docs/class-LegiScan_Endpoint.html)
-
-### LegiScan Bulk Dataset API
-
-The LegiScan Bulk Dataset API provides access to weekly snapshot ZIP archives containing all getBill, getRollCall, and getPerson payload records as individual JSON files for each legislative session. Clients retrieve dataset listings via getDatasetList and download archives via getDataset using a session_id and access_key. Datasets are available for all 50 states and Congress going back multiple sessions.
-
-- **Human URL:** [https://legiscan.com/datasets](https://legiscan.com/datasets)
-- **Base URL:** `https://api.legiscan.com/`
-
-#### Tags
-
-- Bulk Data
-- Datasets
-- Bills
-- Sessions
-- Archives
-
-#### Properties
-
-- [Documentation](https://legiscan.com/datasets)
-- [Data Exports](https://legiscan.com/data-exports)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://legiscan.com)
 - [Documentation](https://legiscan.com/legiscan)
-- [API Reference](https://legiscan.com/gaits/documentation/legiscan)
-- [Blog](https://legiscan.com/news-update)
+- [API reference](https://legiscan.com/gaits/documentation/legiscan)
 - [Pricing](https://legiscan.com/pricing/api)
-- [LinkedIn](https://www.linkedin.com/company/legiscan)
-- [X (Twitter)](https://x.com/LegiScan)
-- [Plans](plans/legiscan-plans-pricing.yml)
-- [Rate Limits](rate-limits/legiscan-rate-limits.yml)
-- [Fin Ops](finops/legiscan-finops.yml)
+- [Blog](https://legiscan.com/news-update)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 14.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 18.4 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/legiscan/](https://apis.io/providers/legiscan/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for LegiScan: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/legiscan/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
